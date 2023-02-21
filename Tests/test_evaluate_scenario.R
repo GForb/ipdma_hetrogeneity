@@ -45,7 +45,13 @@ test_that("meta_analyse_metric", {
   expect_equal(class(meta_analysis), c("rma.uni", "rma" ))
 })
 
-test_that("meta_analyse_metric", {
-  meta_analysis <- meta_analyse_metric(performance_data = performance, "cstat")
-  expect_equal(class(meta_analysis), c("rma.uni", "rma" ))
+test_that("evaluate_scenario", {
+  meta_analysese <- evaluate_scenario(data_generating_function = generate_data, 
+                                      analysis_mdoel = analysis_model,
+                                      train_n = 1000,
+                                      test_n = 10000)
+  
+  expect_equal(length(meta_analysese), 3)
 })
+
+
