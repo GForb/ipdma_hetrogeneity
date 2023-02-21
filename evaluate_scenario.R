@@ -6,7 +6,7 @@ evaluate_scenario <- function(data_generating_function, analysis_mdoel, train_n,
   model <- analysis_model(train_data)
   performance <- get_performance_by_study(model, test_data, "study")
   metrics <- performance$metric |> unique()
-  print(metrics)
+
   lapply(metrics, meta_analyse_metric, performance_data = performance)
 
 }
